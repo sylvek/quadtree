@@ -12,8 +12,9 @@ def main(file, number_of_layer):
             process(qt, position)
 
 def process(qt, position):
-    qt.add_position([float(position['lat']), float(position['lng'])])
-    print('{}\n{}'.format(position, qt))
+    if float(position['accuracy']) < 100.0:
+        qt.add_position([float(position['lat']), float(position['lng'])])
+        print('{}\n{}'.format(position, qt))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
