@@ -1,12 +1,9 @@
 from QuadTree import QuadTree
-import csv, argparse, time
+import csv, argparse
 
 def main(file, number_of_layer):
-    print("initializing...")
-    t1 = time.time()
     qt = QuadTree([[90.0,-180.0],[-90.0,180.0]], number_of_layer, '00')
-    print("QuadTree initialized in {} s".format(time.time() - t1))
-
+    
     with open(file) as positions_file:
         for position in csv.DictReader(positions_file):
             process(qt, position)
