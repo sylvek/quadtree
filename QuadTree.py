@@ -59,10 +59,10 @@ class QuadTree:
         lng_se = self.__latlng_bounding_box[1][1]
 
         return [
-                QuadTree([ [lat_nw, lng_nw], [(lat_nw + lat_se) / 2, (lng_nw + lng_se) / 2] ], self.__layer_level - 1, self.__name, '00'),
-                QuadTree([ [lat_nw, (lng_nw + lng_se) / 2], [(lat_nw + lat_se) / 2, lng_se] ], self.__layer_level - 1, self.__name, '01'),
-                QuadTree([ [(lat_nw + lat_se) / 2, lng_nw], [lat_se, (lng_nw + lng_se) / 2] ], self.__layer_level - 1, self.__name, '10'),
-                QuadTree([ [(lat_nw + lat_se) / 2, (lng_nw + lng_se) / 2], [lat_se, lng_se] ], self.__layer_level - 1, self.__name, '11')
+                QuadTree([ [lat_nw, lng_nw], [(lat_nw + lat_se) / 2, (lng_nw + lng_se) / 2] ], self.__layer_level - 1, self.__name, 0),
+                QuadTree([ [lat_nw, (lng_nw + lng_se) / 2], [(lat_nw + lat_se) / 2, lng_se] ], self.__layer_level - 1, self.__name, 1),
+                QuadTree([ [(lat_nw + lat_se) / 2, lng_nw], [lat_se, (lng_nw + lng_se) / 2] ], self.__layer_level - 1, self.__name, 2),
+                QuadTree([ [(lat_nw + lat_se) / 2, (lng_nw + lng_se) / 2], [lat_se, lng_se] ], self.__layer_level - 1, self.__name, 3)
             ]
     
     def __iscontain(self, latlng):
